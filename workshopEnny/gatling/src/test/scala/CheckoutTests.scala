@@ -14,6 +14,7 @@ class CheckoutTests extends Simulation{
     val scn = scenario("Checkout")
       .exec(CheckoutRequests.getCheckout)
 
-    setUp(scn.inject(constantUsersPerSec(EnvConfig().getInt("loading.usersCount")) during(EnvConfig().getInt("loading.duration") seconds))).protocols(httpConf)
-
+    setUp(scn.inject(constantUsersPerSec(
+      EnvConfig().getInt("loading.usersCount")) during(
+      EnvConfig().getInt("loading.duration") seconds))).protocols(httpConf)
 }
